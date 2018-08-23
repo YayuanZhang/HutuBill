@@ -1,4 +1,3 @@
-
 package gui.frame;
 
 import java.awt.Component;
@@ -15,12 +14,12 @@ public class MainFrame extends JFrame
     }
     
     private MainFrame() {
-        this.setSize(500, 450);
-        this.setTitle("\u4e00\u672c\u7cca\u6d82\u8d26");
+        this.setSize(425, 500);
+        this.setTitle("一本糊涂帐");
         this.setContentPane(MainPanel.instance);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        this.setDefaultCloseOperation(3);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     
     public static void main(final String[] args) {

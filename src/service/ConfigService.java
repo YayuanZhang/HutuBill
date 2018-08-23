@@ -1,7 +1,3 @@
-// 
-// Decompiled by Procyon v0.5.30
-// 
-
 package service;
 
 import entity.Config;
@@ -24,28 +20,28 @@ public class ConfigService
         init("mysqlPath", "");
     }
     
-    private static void init(final String key, final String value) {
-        final Config config = ConfigService.dao.getByKey(key);
+    private static void init(String key, String value) {
+        Config config = ConfigService.dao.getByKey(key);
         if (config == null) {
-            final Config c = new Config();
+            Config c = new Config();
             c.setKey(key);
             c.setValue(value);
             ConfigService.dao.add(c);
         }
     }
     
-    public String get(final String key) {
-        final Config config = ConfigService.dao.getByKey(key);
+    public String get(String key) {
+        Config config = ConfigService.dao.getByKey(key);
         return config.getValue();
     }
     
-    public void update(final String key, final String value) {
-        final Config config = ConfigService.dao.getByKey(key);
+    public void update(String key, String value) {
+        Config config = ConfigService.dao.getByKey(key);
         config.setValue(value);
         ConfigService.dao.update(config);
     }
     
     public int getIntBudget() {
-        return Integer.parseInt(this.get("budget"));
+        return Integer.parseInt(get("budget"));
     }
 }

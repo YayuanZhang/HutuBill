@@ -1,7 +1,3 @@
-// 
-// Decompiled by Procyon v0.5.30
-// 
-
 package gui.panel;
 
 import java.awt.event.ActionListener;
@@ -45,10 +41,10 @@ public class RecordPanel extends WorkingPanel
     }
     
     public RecordPanel() {
-        this.lSpend = new JLabel("\u82b1\u8d39(\uffe5)");
-        this.lCategory = new JLabel("\u5206\u7c7b");
-        this.lComment = new JLabel("\u5907\u6ce8");
-        this.lDate = new JLabel("\u65e5\u671f");
+        this.lSpend = new JLabel("花费(￥)");
+        this.lCategory = new JLabel("分类");
+        this.lComment = new JLabel("备注");
+        this.lDate = new JLabel("日期");
         this.tfSpend = new JTextField("0");
         this.cbModel = new CategoryComboBoxModel();
         this.cbCategory = new JComboBox<Category>(this.cbModel);
@@ -71,8 +67,8 @@ public class RecordPanel extends WorkingPanel
         pInput.add(this.datepick);
         pSubmit.add(this.bSubmit);
         this.setLayout(new BorderLayout());
-        this.add(pInput, "North");
-        this.add(pSubmit, "Center");
+        this.add(pInput, BorderLayout.NORTH);
+        this.add(pSubmit, BorderLayout.CENTER);
         this.addListener();
     }
     

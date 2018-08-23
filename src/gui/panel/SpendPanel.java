@@ -1,7 +1,3 @@
-// 
-// Decompiled by Procyon v0.5.30
-// 
-
 package gui.panel;
 
 import gui.page.SpendPage;
@@ -40,32 +36,32 @@ public class SpendPanel extends WorkingPanel
     }
     
     public SpendPanel() {
-        this.lMonthSpend = new JLabel("\u672c\u6708\u6d88\u8d39");
-        this.lTodaySpend = new JLabel("\u4eca\u65e5\u6d88\u8d39");
-        this.lAvgSpendPerDay = new JLabel("\u65e5\u5747\u6d88\u8d39");
-        this.lMonthLeft = new JLabel("\u672c\u6708\u5269\u4f59");
-        this.lDayAvgAvailable = new JLabel("\u65e5\u5747\u53ef\u7528");
-        this.lMonthLeftDay = new JLabel("\u8ddd\u79bb\u6708\u672b");
-        this.vMonthSpend = new JLabel("\uffe52300");
-        this.vTodaySpend = new JLabel("\uffe525");
-        this.vAvgSpendPerDay = new JLabel("\uffe5120");
-        this.vMonthAvailable = new JLabel("\uffe52084");
-        this.vDayAvgAvailable = new JLabel("\uffe5389");
-        this.vMonthLeftDay = new JLabel("15\u5929");
+        this.lMonthSpend = new JLabel("本月消费");
+        this.lTodaySpend = new JLabel("今日消费");
+        this.lAvgSpendPerDay = new JLabel("日均消费");
+        this.lMonthLeft = new JLabel("本月剩余");
+        this.lDayAvgAvailable = new JLabel("日均可用");
+        this.lMonthLeftDay = new JLabel("距离月末");
+        this.vMonthSpend = new JLabel("￥");
+        this.vTodaySpend = new JLabel("￥");
+        this.vAvgSpendPerDay = new JLabel("￥");
+        this.vMonthAvailable = new JLabel("￥");
+        this.vDayAvgAvailable = new JLabel("￥");
+        this.vMonthLeftDay = new JLabel(" 天");
         this.setLayout(new BorderLayout());
         (this.bar = new CircleProgressBar()).setBackgroundColor(ColorUtil.blueColor);
         GUIUtil.setColor(ColorUtil.grayColor, this.lMonthSpend, this.lTodaySpend, this.lAvgSpendPerDay, this.lMonthLeft, this.lDayAvgAvailable, this.lMonthLeftDay, this.vAvgSpendPerDay, this.vMonthAvailable, this.vDayAvgAvailable, this.vMonthLeftDay);
         GUIUtil.setColor(ColorUtil.blueColor, this.vMonthSpend, this.vTodaySpend);
-        this.vMonthSpend.setFont(new Font("\u5fae\u8f6f\u96c5\u9ed1", 1, 23));
-        this.vTodaySpend.setFont(new Font("\u5fae\u8f6f\u96c5\u9ed1", 1, 23));
-        this.add(this.center(), "Center");
-        this.add(this.south(), "South");
+        this.vMonthSpend.setFont(new Font("微软雅黑", 1, 23));
+        this.vTodaySpend.setFont(new Font("微软雅黑", 1, 23));
+        this.add(this.center(), BorderLayout.CENTER);
+        this.add(this.south(), BorderLayout.SOUTH);
     }
     
     private JPanel center() {
         final JPanel p = new JPanel();
         p.setLayout(new BorderLayout());
-        p.add(this.west(), "West");
+        p.add(this.west(), BorderLayout.WEST);
         p.add(this.east());
         return p;
     }

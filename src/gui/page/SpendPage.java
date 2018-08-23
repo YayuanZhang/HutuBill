@@ -1,7 +1,3 @@
-// 
-// Decompiled by Procyon v0.5.30
-// 
-
 package gui.page;
 
 public class SpendPage
@@ -17,21 +13,21 @@ public class SpendPage
     
     public SpendPage(final int monthSpend, final int todaySpend, final int avgSpendPerDay, final int monthAvailable, final int dayAvgAvailable, final int monthLeftDay, final int usagePercentage) {
         this.isOverSpend = false;
-        this.monthSpend = "\uffe5" + monthSpend;
-        this.todaySpend = "\uffe5" + todaySpend;
-        this.avgSpendPerDay = "\uffe5" + avgSpendPerDay;
+        this.monthSpend = "￥" + monthSpend;
+        this.todaySpend = "￥" + todaySpend;
+        this.avgSpendPerDay = "￥" + avgSpendPerDay;
         if (monthAvailable < 0) {
             this.isOverSpend = true;
         }
         if (!this.isOverSpend) {
-            this.monthAvailable = "\uffe5" + monthAvailable;
-            this.dayAvgAvailable = "\uffe5" + dayAvgAvailable;
+            this.monthAvailable = "￥" + monthAvailable;
+            this.dayAvgAvailable = "￥" + dayAvgAvailable;
         }
         else {
-            this.monthAvailable = "\u8d85\u652f" + (0 - monthAvailable);
-            this.dayAvgAvailable = "\uffe50";
+            this.monthAvailable = "超支" + (0 - monthAvailable);
+            this.dayAvgAvailable = "￥0";
         }
-        this.monthLeftDay = String.valueOf(monthLeftDay) + "\u5929";
+        this.monthLeftDay = String.valueOf(monthLeftDay) + "天";
         this.usagePercentage = usagePercentage;
     }
 }

@@ -1,7 +1,3 @@
-// 
-// Decompiled by Procyon v0.5.30
-// 
-
 package gui.panel;
 
 import java.awt.event.ActionListener;
@@ -24,7 +20,7 @@ public class BackupPanel extends WorkingPanel
     }
     
     public BackupPanel() {
-        this.bBackup = new JButton("\u5907\u4efd");
+        this.bBackup = new JButton("备份");
         GUIUtil.setColor(ColorUtil.blueColor, this.bBackup);
         this.add(this.bBackup);
         this.addListener();

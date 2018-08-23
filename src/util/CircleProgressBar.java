@@ -35,59 +35,59 @@ public class CircleProgressBar extends JPanel
         int width = 0;
         int height = 0;
         int fontSize = 0;
-        if (this.getWidth() >= this.getHeight()) {
-            x = (this.getWidth() - this.getHeight()) / 2 + 25;
+        if (getWidth() >= getHeight()) {
+            x = (getWidth() - getHeight()) / 2 + 25;
             y = 25;
-            width = this.getHeight() - 50;
-            height = this.getHeight() - 50;
-            fontSize = this.getWidth() / 8;
+            width = getHeight() - 50;
+            height = getHeight() - 50;
+            fontSize = getWidth() / 8;
         }
         else {
             x = 25;
-            y = (this.getHeight() - this.getWidth()) / 2 + 25;
-            width = this.getWidth() - 50;
-            height = this.getWidth() - 50;
-            fontSize = this.getHeight() / 8;
+            y = (getHeight() -getWidth()) / 2 + 25;
+            width = getWidth() - 50;
+            height = getWidth() - 50;
+            fontSize = getHeight() / 8;
         }
         graphics2d.setStroke(new BasicStroke(20.0f));
-        graphics2d.setColor(this.backgroundColor);
+        graphics2d.setColor(backgroundColor);
         graphics2d.drawArc(x, y, width, height, 0, 360);
-        graphics2d.setColor(this.foregroundColor);
-        graphics2d.drawArc(x, y, width, height, 90, -(int)(360.0 * (this.progress * 1.0 / (this.maximumProgress - this.minimumProgress))));
+        graphics2d.setColor(foregroundColor);
+        graphics2d.drawArc(x, y, width, height, 90, -(int)(360.0 * (progress * 1.0 / (maximumProgress - minimumProgress))));
         graphics2d.setFont(new Font("\u9ed1\u4f53", 1, fontSize));
-        final FontMetrics fontMetrics = graphics2d.getFontMetrics();
-        final int digitalWidth = fontMetrics.stringWidth(this.progressText);
-        final int digitalAscent = fontMetrics.getAscent();
-        graphics2d.setColor(this.foregroundColor);
-        graphics2d.drawString(this.progressText, this.getWidth() / 2 - digitalWidth / 2, this.getHeight() / 2 + digitalAscent / 2);
+        FontMetrics fontMetrics = graphics2d.getFontMetrics();
+        int digitalWidth = fontMetrics.stringWidth(progressText);
+        int digitalAscent = fontMetrics.getAscent();
+        graphics2d.setColor(foregroundColor);
+        graphics2d.drawString(progressText, getWidth() / 2 - digitalWidth / 2, getHeight() / 2 + digitalAscent / 2);
     }
     
     public int getProgress() {
-        return this.progress;
+        return progress;
     }
     
-    public void setProgress(final int progress) {
-        if (progress >= this.minimumProgress && progress <= this.maximumProgress) {
+    public void setProgress( int progress) {
+        if (progress >= minimumProgress && progress <=maximumProgress) {
             this.progress = progress;
         }
-        if (progress > this.maximumProgress) {
-            this.progress = this.maximumProgress;
+        if (progress > maximumProgress) {
+            this.progress = maximumProgress;
         }
         this.progressText = String.valueOf(String.valueOf(progress) + "%");
         this.repaint();
     }
     
     public Color getBackgroundColor() {
-        return this.backgroundColor;
+        return backgroundColor;
     }
     
-    public void setBackgroundColor(final Color backgroundColor) {
+    public void setBackgroundColor( Color backgroundColor) {
         this.backgroundColor = backgroundColor;
         this.repaint();
     }
     
     public Color getForegroundColor() {
-        return this.foregroundColor;
+        return foregroundColor;
     }
     
     public void setForegroundColor(final Color foregroundColor) {

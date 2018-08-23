@@ -24,11 +24,11 @@ public class RecordListener implements ActionListener
     public void actionPerformed(final ActionEvent e) {
         final RecordPanel p = RecordPanel.instance;
         if (p.cbModel.cs.size() == 0) {
-            JOptionPane.showMessageDialog(p, "\u6682\u65e0\u6d88\u8d39\u5206\u7c7b\uff0c\u65e0\u6cd5\u6dfb\u52a0\uff0c\u8bf7\u5148\u589e\u52a0\u6d88\u8d39\u5206\u7c7b");
+            JOptionPane.showMessageDialog(p, "暂无消费分类，无法添加，请先增加消费分类");
             MainPanel.instance.workingPanel.show(CategoryPanel.instance);
             return;
         }
-        if (!GUIUtil.checkZero(p.tfSpend, "\u82b1\u8d39\u91d1\u989d")) {
+        if (!GUIUtil.checkZero(p.tfSpend, "花费金额")) {
             return;
         }
         final int spend = Integer.parseInt(p.tfSpend.getText());
@@ -36,7 +36,7 @@ public class RecordListener implements ActionListener
         final String comment = p.tfComment.getText();
         final Date d = p.datepick.getDate();
         new RecordService().add(spend, c, comment, d);
-        JOptionPane.showMessageDialog(p, "\u6dfb\u52a0\u6210\u529f");
+        JOptionPane.showMessageDialog(p, "添加成功");
         MainPanel.instance.workingPanel.show(SpendPanel.instance);
     }
 }

@@ -1,7 +1,3 @@
-// 
-// Decompiled by Procyon v0.5.30
-// 
-
 package entity;
 
 import java.util.Date;
@@ -18,7 +14,7 @@ public class Record
         return this.id;
     }
     
-    public void setId(final int id) {
+    public void setId(int id) {
         this.id = id;
     }
     
@@ -26,7 +22,7 @@ public class Record
         return this.cid;
     }
     
-    public void setCid(final int cid) {
+    public void setCid(int cid) {
         this.cid = cid;
     }
     
@@ -34,7 +30,7 @@ public class Record
         return this.comment;
     }
     
-    public void setComment(final String comment) {
+    public void setComment(String comment) {
         this.comment = comment;
     }
     
@@ -42,7 +38,7 @@ public class Record
         return this.date;
     }
     
-    public void setDate(final Date date) {
+    public void setDate(Date date) {
         this.date = date;
     }
     
@@ -50,7 +46,7 @@ public class Record
         return this.spend;
     }
     
-    public void setSpend(final int spend) {
+    public void setSpend(int spend) {
         this.spend = spend;
     }
 }

@@ -22,7 +22,7 @@ public class CategoryListener implements ActionListener
         if (b == p.bAdd) {
             final String name = JOptionPane.showInputDialog(null);
             if (name.length() == 0) {
-                JOptionPane.showMessageDialog(p, "\u5206\u7c7b\u540d\u79f0\u4e0d\u80fd\u4e3a\u7a7a");
+                JOptionPane.showMessageDialog(p, "分类名称不能为空");
                 return;
             }
             new CategoryService().add(name);
@@ -30,9 +30,9 @@ public class CategoryListener implements ActionListener
         if (b == p.bEdit) {
             final Category c = p.getSelectedCategory();
             final int id = c.id;
-            final String name2 = JOptionPane.showInputDialog("\u4fee\u6539\u5206\u7c7b\u540d\u79f0", c.name);
+            final String name2 = JOptionPane.showInputDialog("修改分类名称", c.name);
             if (name2.length() == 0) {
-                JOptionPane.showMessageDialog(p, "\u5206\u7c7b\u540d\u79f0\u4e0d\u80fd\u4e3a\u7a7a");
+                JOptionPane.showMessageDialog(p, "分类名称不能为空");
                 return;
             }
             new CategoryService().update(id, name2);
@@ -40,10 +40,10 @@ public class CategoryListener implements ActionListener
         if (b == p.bDelete) {
             final Category c = p.getSelectedCategory();
             if (c.recordNumber != 0) {
-                JOptionPane.showMessageDialog(p, "\u672c\u5206\u7c7b\u4e0b\u6709\u6d88\u8d39\u8bb0\u5f55\u5b58\u5728\uff0c\u4e0d\u80fd\u5220\u9664");
+                JOptionPane.showMessageDialog(p, "本分类下有消费记录存在，不能删除");
                 return;
             }
-            if (JOptionPane.showConfirmDialog(p, "\u786e\u8ba4\u8981\u5220\u9664\uff1f") != 0) {
+            if (JOptionPane.showConfirmDialog(p, "确定要删除？") != 0) {
                 return;
             }
             final int id = c.id;

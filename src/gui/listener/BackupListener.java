@@ -25,7 +25,7 @@ public class BackupListener implements ActionListener
         final BackupPanel p = BackupPanel.instance;
         final String mysqlPath = new ConfigService().get("mysqlPath");
         if (mysqlPath.length() == 0) {
-            JOptionPane.showMessageDialog(p, "\u5907\u4efd\u524d\u8bf7\u4e8b\u5148\u914d\u7f6emysql\u7684\u8def\u5f84");
+            JOptionPane.showMessageDialog(p, "备份前请事先配置mysql的路径");
             MainPanel.instance.workingPanel.show(ConfigPanel.instance);
             ConfigPanel.instance.tfMysqlPath.grabFocus();
             return;
@@ -54,11 +54,11 @@ public class BackupListener implements ActionListener
             System.out.println(file);
             try {
                 MysqlUtil.backup(mysqlPath, file.getAbsolutePath());
-                JOptionPane.showMessageDialog(p, "\u5907\u4efd\u6210\u529f,\u5907\u4efd\u6587\u4ef6\u4f4d\u4e8e:\r\n" + file.getAbsolutePath());
+                JOptionPane.showMessageDialog(p, "备份成功,备份文件位于:\r\n" + file.getAbsolutePath());
             }
             catch (Exception e2) {
                 e2.printStackTrace();
-                JOptionPane.showMessageDialog(p, "\u5907\u4efd\u5931\u8d25\r\n,\u9519\u8bef:\r\n" + e2.getMessage());
+                JOptionPane.showMessageDialog(p, "备份失败\r\n,错误:\r\n" + e2.getMessage());
             }
         }
     }

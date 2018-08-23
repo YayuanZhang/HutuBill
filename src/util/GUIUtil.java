@@ -18,28 +18,16 @@ import javax.swing.JButton;
 
 public class GUIUtil
 {
-    private static String imageFolder;
-    
-    static {
-        GUIUtil.imageFolder = "/home/luviszero/eclipse-workspace/HutuBill/img/";
-    }
+    private static String imageFolder = "/home/luviszero/eclipse-workspace/HutuBill/img";
+  
     
     public static void setImageIcon(JButton b, String fileName,  String tip) {
-        File f = new File(GUIUtil.imageFolder, fileName);
-        ImageIcon i = null;
-        if (f.exists()) {
-            i = new ImageIcon(f.getAbsolutePath());
-        }
-        else {
-            URL u = ClassLoader.getSystemResource("img/"+fileName);
-            System.out.println(u);
-            i = new ImageIcon(u);
-        }
+    	ImageIcon i = new ImageIcon(new File(imageFolder, fileName).getAbsolutePath());
         b.setIcon(i);
-        b.setPreferredSize(new Dimension(61, 81));
+        b.setPreferredSize(new Dimension(61, 105));
         b.setToolTipText(tip);
-        b.setVerticalTextPosition(3);
-        b.setHorizontalTextPosition(0);
+        b.setVerticalTextPosition(JButton.BOTTOM);
+        b.setHorizontalTextPosition(JButton.CENTER);
         b.setText(tip);
     }
     
@@ -50,7 +38,7 @@ public class GUIUtil
     }
     
     public static void showPanel(JPanel p,  double strechRate) {
-        useLNF();
+    	GUIUtil.useLNF();
         JFrame f = new JFrame();
         f.setSize(500, 500);
         f.setLocationRelativeTo(null);
@@ -69,35 +57,35 @@ public class GUIUtil
         if (!checkEmpty(tf, input)) {
             return false;
         }
-        final String text = tf.getText().trim();
+        String text = tf.getText().trim();
         try {
             Integer.parseInt(text);
             return true;
         }
         catch (NumberFormatException e1) {
-            JOptionPane.showMessageDialog(null, String.valueOf(input) + " \u9700\u8981\u662f\u6574\u6570");
+            JOptionPane.showMessageDialog(null, String.valueOf(input) + "  需要是整数");
             tf.grabFocus();
             return false;
         }
     }
     
-    public static boolean checkZero(final JTextField tf, final String input) {
+    public static boolean checkZero(JTextField tf, String input) {
         if (!checkNumber(tf, input)) {
             return false;
         }
-        final String text = tf.getText().trim();
+        String text = tf.getText().trim();
         if (Integer.parseInt(text) == 0) {
-            JOptionPane.showMessageDialog(null, String.valueOf(input) + " \u4e0d\u80fd\u4e3a\u96f6");
+            JOptionPane.showMessageDialog(null, String.valueOf(input) + " 不能为零");
             tf.grabFocus();
             return false;
         }
         return true;
     }
     
-    public static boolean checkEmpty(final JTextField tf, final String input) {
-        final String text = tf.getText().trim();
+    public static boolean checkEmpty(JTextField tf, String input) {
+        String text = tf.getText().trim();
         if (text.length() == 0) {
-            JOptionPane.showMessageDialog(null, String.valueOf(input) + " \u4e0d\u80fd\u4e3a\u7a7a");
+            JOptionPane.showMessageDialog(null, String.valueOf(input) + " 不能为空");
             tf.grabFocus();
             return false;
         }

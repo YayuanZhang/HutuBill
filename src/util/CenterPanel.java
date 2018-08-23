@@ -12,9 +12,9 @@ import javax.swing.JPanel;
 
 public class CenterPanel extends JPanel
 {
-    private double rate;
-    private JComponent c;
-    private boolean strech;
+    private double rate; //拉伸比例
+    private JComponent c; //显示的组件
+    private boolean strech; //是否拉伸
     
     public CenterPanel(final double rate, final boolean strech) {
         this.setLayout(null);

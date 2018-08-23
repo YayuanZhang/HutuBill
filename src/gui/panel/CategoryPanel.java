@@ -1,7 +1,3 @@
-// 
-// Decompiled by Procyon v0.5.30
-// 
-
 package gui.panel;
 
 import java.awt.event.ActionListener;
@@ -37,10 +33,10 @@ public class CategoryPanel extends WorkingPanel
     }
     
     public CategoryPanel() {
-        this.bAdd = new JButton("\u65b0\u589e");
-        this.bEdit = new JButton("\u7f16\u8f91");
-        this.bDelete = new JButton("\u5220\u9664");
-        this.columNames = new String[] { "\u5206\u7c7b\u540d\u79f0", "\u6d88\u8d39\u6b21\u6570" };
+        this.bAdd = new JButton("新增");
+        this.bEdit = new JButton("编辑");
+        this.bDelete = new JButton("删除");
+        this.columNames = new String[] { "分类名称", "消费次数" };
         this.ctm = new CategoryTableModel();
         this.t = new JTable(this.ctm);
         GUIUtil.setColor(ColorUtil.blueColor, this.bAdd, this.bEdit, this.bDelete);
@@ -50,8 +46,8 @@ public class CategoryPanel extends WorkingPanel
         pSubmit.add(this.bEdit);
         pSubmit.add(this.bDelete);
         this.setLayout(new BorderLayout());
-        this.add(sp, "Center");
-        this.add(pSubmit, "South");
+        this.add(sp, BorderLayout.CENTER);
+        this.add(pSubmit, BorderLayout.SOUTH);
         this.addListener();
     }
     

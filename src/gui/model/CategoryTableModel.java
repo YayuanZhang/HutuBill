@@ -1,7 +1,3 @@
-// 
-// Decompiled by Procyon v0.5.30
-// 
-
 package gui.model;
 
 import service.CategoryService;
@@ -15,7 +11,7 @@ public class CategoryTableModel extends AbstractTableModel
     public List<Category> cs;
     
     public CategoryTableModel() {
-        this.columnNames = new String[] { "\u5206\u7c7b\u540d\u79f0", "\u6d88\u8d39\u6b21\u6570" };
+        this.columnNames = new String[] { "分类名称", "消费次数" };
         this.cs = new CategoryService().list();
     }
     

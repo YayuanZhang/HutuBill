@@ -1,7 +1,3 @@
-// 
-// Decompiled by Procyon v0.5.30
-// 
-
 package util;
 
 import java.awt.Color;
@@ -26,9 +22,9 @@ public class ColorUtil
         }
         int r = 51;
         int g = 255;
-        final int b = 51;
-        final float rate = per / 100.0f;
-        r = (int)(204.0f * rate + 51.0f);
+        int b = 51;
+        float rate = per / 100.0f;
+        r = (int)((255-51) * rate + 51.0);
         g = 255 - r + 51;
         final Color color = new Color(r, g, b);
         return color;

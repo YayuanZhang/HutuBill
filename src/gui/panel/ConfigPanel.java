@@ -34,11 +34,11 @@ public class ConfigPanel extends WorkingPanel
     }
     
     public ConfigPanel() {
-        this.lBudget = new JLabel("\u672c\u6708\u9884\u7b97(\uffe5)");
+        this.lBudget = new JLabel("本月预算(￥)");
         this.tfBudget = new JTextField("0");
-        this.lMysql = new JLabel("Mysql\u5b89\u88c5\u76ee\u5f55");
+        this.lMysql = new JLabel("Mysql安装目录");
         this.tfMysqlPath = new JTextField("");
-        this.bSubmit = new JButton("\u66f4\u65b0");
+        this.bSubmit = new JButton("更新");
         GUIUtil.setColor(ColorUtil.grayColor, this.lBudget, this.lMysql);
         GUIUtil.setColor(ColorUtil.blueColor, this.bSubmit);
         final JPanel pInput = new JPanel();
@@ -51,8 +51,8 @@ public class ConfigPanel extends WorkingPanel
         pInput.add(this.tfMysqlPath);
         pSubmit.add(this.bSubmit);
         this.setLayout(new BorderLayout());
-        this.add(pInput, "North");
-        this.add(pSubmit, "Center");
+        this.add(pInput, BorderLayout.NORTH);
+        this.add(pSubmit, BorderLayout.CENTER);
         this.addListener();
     }
     
@@ -68,8 +68,8 @@ public class ConfigPanel extends WorkingPanel
     
     @Override
     public void updateData() {
-        final String budget = new ConfigService().get("budget");
-        final String mysqlPath = new ConfigService().get("mysqlPath");
+        final String budget = new ConfigService().get(ConfigService.budget);
+        final String mysqlPath = new ConfigService().get(ConfigService.mysqlPath);
         this.tfBudget.setText(budget);
         this.tfMysqlPath.setText(mysqlPath);
         this.tfBudget.grabFocus();

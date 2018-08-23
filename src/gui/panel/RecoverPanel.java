@@ -1,7 +1,3 @@
-// 
-// Decompiled by Procyon v0.5.30
-// 
-
 package gui.panel;
 
 import java.awt.event.ActionListener;
@@ -24,7 +20,7 @@ public class RecoverPanel extends WorkingPanel
     }
     
     public RecoverPanel() {
-        this.bRecover = new JButton("\u6062\u590d");
+        this.bRecover = new JButton("恢复");
         GUIUtil.setColor(ColorUtil.blueColor, this.bRecover);
         this.add(this.bRecover);
         this.addListener();

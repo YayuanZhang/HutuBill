@@ -1,8 +1,4 @@
-// 
-// Decompiled by Procyon v0.5.30
-// 
-
-package gui.panel;
+ package gui.panel;
 
 import java.awt.event.ActionListener;
 import gui.listener.ToolBarListener;
@@ -42,13 +38,13 @@ public class MainPanel extends JPanel
         this.bConfig = new JButton();
         this.bBackup = new JButton();
         this.bRecover = new JButton();
-        GUIUtil.setImageIcon(this.bSpend, "home.png", "\u6d88\u8d39\u4e00\u89c8");
-        GUIUtil.setImageIcon(this.bRecord, "record.png", "\u8bb0\u4e00\u7b14");
-        GUIUtil.setImageIcon(this.bCategory, "category2.png", "\u6d88\u8d39\u5206\u7c7b");
-        GUIUtil.setImageIcon(this.bReport, "report.png", "\u6708\u6d88\u8d39\u62a5\u8868");
-        GUIUtil.setImageIcon(this.bConfig, "config.png", "\u8bbe\u7f6e");
-        GUIUtil.setImageIcon(this.bBackup, "backup.png", "\u5907\u4efd");
-        GUIUtil.setImageIcon(this.bRecover, "restore.png", "\u6062\u590d");
+        GUIUtil.setImageIcon(this.bSpend, "home.png", "消费一览");
+        GUIUtil.setImageIcon(this.bRecord, "record.png", "记一笔");
+        GUIUtil.setImageIcon(this.bCategory, "category2.png", "消费分类");
+        GUIUtil.setImageIcon(this.bReport, "report.png", "月消费报表");
+        GUIUtil.setImageIcon(this.bConfig, "config.png", "设置");
+        GUIUtil.setImageIcon(this.bBackup, "backup.png", "备份");
+        GUIUtil.setImageIcon(this.bRecover, "restore.png", "恢复");
         this.tb.add(this.bSpend);
         this.tb.add(this.bRecord);
         this.tb.add(this.bCategory);
@@ -59,8 +55,8 @@ public class MainPanel extends JPanel
         this.tb.setFloatable(false);
         this.workingPanel = new CenterPanel(0.8);
         this.setLayout(new BorderLayout());
-        this.add(this.tb, "North");
-        this.add(this.workingPanel, "Center");
+        this.add(this.tb, BorderLayout.NORTH);
+        this.add(this.workingPanel, BorderLayout.CENTER);
         this.addListener();
     }
     
@@ -76,6 +72,6 @@ public class MainPanel extends JPanel
     }
     
     public static void main(final String[] args) {
-        GUIUtil.showPanel(MainPanel.instance, 1.0);
+        GUIUtil.showPanel(MainPanel.instance, 1);
     }
 }
